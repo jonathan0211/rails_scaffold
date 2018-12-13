@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: rails_scaffold_development
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: rails_scaffold_test
+  username: postgres
+  password: postgres
+
+production:
+  <<: *default
+  database: rails_scaffold_production
+  username: rails_scaffold
+  password: <%= ENV['RAILS_SCAFFOLD_DATABASE_PASSWORD'] %>
